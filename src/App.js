@@ -1,15 +1,26 @@
 import './App.css';
 import Header from './components/Header';
-import FeedbackItem from './components/FeedbackItem';
+import FeedbackList from './components/FeedbackList';
+import feedbackData from './data/feedbackData';
+import { useState } from 'react';
+
 
 function App() {
+  const[feedback,setFeedback]=useState(feedbackData);
+  const handleDelete =(id)=>{
+    if(window.confirm('Do you want this item to be delted ?')){
+      setFeedback(feedback.filter(feedback=>feedback.id!== id))
+    }else{
+      return;
+    }
+    
+  }
   return (
     <>
       <div className="App">
-      
       </div>
       <Header/>
-      <FeedbackItem/>
+      <FeedbackList feedback={feedback} handleDelete={handleDelete}/>
     </>
     
   );
