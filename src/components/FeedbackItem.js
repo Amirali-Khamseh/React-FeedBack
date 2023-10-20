@@ -1,8 +1,11 @@
 import {FaTimes} from 'react-icons/fa' 
 import Card from './shared/Card'
-import PropTypes from 'prop-types'
+import { useContext } from "react"
+import FeedbackContext from "../context/FeedbackContext"
 
-export default function FeedbackItem({item,handleDelete}) {
+
+export default function FeedbackItem({item}) {
+  const {feedback,handleDelete} = useContext(FeedbackContext)
 
   return (
     <Card>
@@ -15,6 +18,3 @@ export default function FeedbackItem({item,handleDelete}) {
   )
 }
 
-FeedbackItem.propTypes ={
-  item:PropTypes.object.isRequired
-}

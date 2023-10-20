@@ -2,7 +2,11 @@ import React, { useState } from 'react'
 import Card from './shared/Card'
 import Button from './shared/Button'
 import Rating from './Rating';
-export default function FeedbackForm({handleAdd}) {
+import { useContext } from "react"
+import FeedbackContext from "../context/FeedbackContext"
+
+export default function FeedbackForm() {
+  const {feedback,handleAdd} = useContext(FeedbackContext)
   const [text, setText] = useState('');
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState('');
