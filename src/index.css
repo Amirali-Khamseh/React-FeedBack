@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
+:root {
+  --primary-bg-color: #202142;
+  --secondary-bg-color: rgba(0, 0, 0, 0.4);
+  --primary-text-color: #fff;
+  --secondary-text-color: #333;
+  --accent-color: #ff6a946c;
+  --accent-color-bg: #ff6a95;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,10 +17,42 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #202142;
-  color: #fff;
+  animation: backgroundChange 20s infinite alternate;
+  color: var(--primary-text-color);
   line-height: 1.6;
+  
 }
+@keyframes backgroundChange {
+  0% {
+    background-color:var(--primary-bg-color); 
+  }
+  10% {
+    background-color:#5a228b; 
+  }
+  20% {
+    background-color: #9f5afd; 
+  }
+  30% {
+    background-color: #d5b8ff; 
+  }
+  50% {
+    background-color:#f1e7fe ;  
+  }
+  60% {
+    background-color: #663399; }
+  70% {
+    background-color:#bf55ec ; }
+  80% {
+    background-color: #a537fd; }
+  90% {
+    background-color:#815a92 ; 
+  }
+  100% {
+    background-color: #8e0bc7; 
+  }
+}
+
+
 
 ul {
   list-style: none;
@@ -30,20 +71,28 @@ header {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+  background: var(--secondary-bg-color);
+  color: var(--accent-color);
 }
 
 .card {
-  background-color: #fff;
-  color: #333;
+  background: linear-gradient(to bottom right, var(--accent-color-bg), #ffcc8c);
+  color: var(--primary-text-color);
   border-radius: 15px;
   padding: 40px 50px;
   margin: 40px;
   position: relative;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
 }
 
 .card.reverse {
-  background-color: rgba(0, 0, 0, 0.4);
-  color: #fff;
+  background-color: var(--secondary-bg-color);
+  color: var(--primary-text-color);
+}
+
+.card:hover {
+  transform: scale(1.02);
 }
 
 .card h2 {
@@ -62,7 +111,6 @@ header {
 .rating li,
 .num-display {
   position: relative;
-  background: #f4f4f4;
   width: 50px;
   height: 50px;
   padding: 10px;
@@ -87,8 +135,8 @@ header {
 
 .rating li:hover,
 .num-display {
-  background: #ff6a95;
-  color: #fff;
+  background: var(--primary-bg-color);
+  color: var(--primary-text-color);
 }
 
 [type='radio'] {
@@ -96,8 +144,8 @@ header {
 }
 
 [type='radio']:checked ~ label {
-  background: #ff6a95;
-  color: #fff;
+  background: var(--primary-bg-color);
+  color: var(--primary-text-color);
 }
 
 .input-group {
@@ -112,6 +160,11 @@ input {
   flex-grow: 2;
   border: none;
   font-size: 16px;
+  border-radius:0.5rem ;
+  padding: 0.2rem;
+
+  margin-right: 0.5rem;
+
 }
 
 input:focus {
@@ -119,7 +172,7 @@ input:focus {
 }
 
 .feedback-stats {
-  color: #fff;
+  color: var(--primary-text-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -146,21 +199,20 @@ input:focus {
 }
 
 .btn {
-  color: #fff;
+  color: var(--primary-text-color);
   border: 0;
   border-radius: 8px;
-  color: #fff;
   width: 100px;
   height: 40px;
   cursor: pointer;
 }
 
 .btn-primary {
-  background-color: #202142;
+  background: var(--primary-bg-color);
 }
 
 .btn-secondary {
-  background: #ff6a95;
+  background: var(--accent-color-bg);
 }
 
 .btn:hover {
@@ -169,8 +221,8 @@ input:focus {
 }
 
 .btn:disabled {
-  background-color: #cccccc;
-  color: #333;
+  background-color:rgba(128, 128, 128, 0.579);
+  color: var(--primary-text-color);
   cursor: auto;
 }
 
@@ -185,22 +237,18 @@ input:focus {
   color: rebeccapurple;
 }
 
-/* FIX: Remove position: absolute to keep about icon at the bottom of the
- * document */
 .about-link {
   display: flex;
   justify-content: flex-end;
 }
 
-/* FIX: Remove position: absolute to keep about icon at the bottom of the
- * document */
 .about-link a {
-  color: #fff;
+  color: var(--primary-text-color);
   cursor: pointer;
 }
 
 .about-link a:hover {
-  color: #ff6a95;
+  color: var(--accent-color);
 }
 
 .about h1 {
@@ -211,10 +259,6 @@ input:focus {
   margin: 10px 0;
 }
 
-header{
-  background-color: rgba(0, 0, 0, 0.4);
-  color: #ff6a95;
-}
 @media (max-width: 600px) {
   .rating li {
     margin: 10px 3px;
