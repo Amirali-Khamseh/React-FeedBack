@@ -1,7 +1,6 @@
 import './App.css';
 import Header from './components/Header';
 import FeedbackList from './components/FeedbackList';
-import feedbackData from './data/feedbackData';
 import FeedbackStatus from './components/FeedbackStatus';
 import FeedbackForm from './components/FeedbackForm'
 import About from './pages/About';
