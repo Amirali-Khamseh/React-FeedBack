@@ -1,11 +1,18 @@
-import React, { useState } from 'react'
-
+import React, { useEffect, useState } from 'react'
+import { useContext } from "react"
+import FeedbackContext from "../context/FeedbackContext"
+  
 export default function Rating({select}) {
-    const[selected,setSelected]=useState(10);
-    const handleChange =(e)=>{
-      setSelected(+e.target.value)
-      select(+e.target.value)
-    }
+  const {feedBackEdit} = useContext(FeedbackContext);
+  const[selected,setSelected]=useState(10);
+  useEffect(()=>{
+    setSelected(feedBackEdit.item.rating);
+  },[feedBackEdit])
+
+  const handleChange =(e)=>{
+    setSelected(+e.target.value)
+    select(+e.target.value)
+  }
 
   return (
     <ul className='rating'>
