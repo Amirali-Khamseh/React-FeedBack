@@ -10,7 +10,7 @@ This React application is designed with a focus on component-based architecture.
 - Make sure you have Node (v18.17.1 has been used on this project) installed on your system or download it from  https://nodejs.org/en. 
 
 - Clone this repository or download the zip file .
-- Open the terminal on the same directory and run the following commands to install the dependencies and run the project .
+- Open the terminal on the same directory and run the following commands to install the dependencies and run the project.
 ```
 npm install
 npm run start
